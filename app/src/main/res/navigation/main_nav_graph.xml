@@ -1,0 +1,24 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:startDestination="@id/mainMenuFragment">
+
+    <fragment
+        android:id="@+id/mainMenuFragment"
+        android:name="com.example.huckathon.ui.MainMenuFragment"
+        android:label="Main Menu" />
+
+    <fragment
+        android:id="@+id/chatBotFragment"
+        android:name="com.example.huckathon.ui.ChatBotFragment"
+        android:label="ChatBot" />
+
+    <fragment
+        android:id="@+id/activityPlannerFragment"
+        android:name="com.example.huckathon.ui.ActivityPlannerFragment"
+        android:label="Activity Planner" />
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.huckathon.ui.ProfileFragment"
+        android:label="Profile" />
+</navigation>

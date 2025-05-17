@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Örnek Soru Şablonu (10 defa kullan) -->
+        <TextView
+            android:text="1. How do you feel today?"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioGroup
+            android:id="@+id/question1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <RadioButton android:text="Great" />
+            <RadioButton android:text="Okay" />
+            <RadioButton android:text="Bad" />
+        </RadioGroup>
+
+        <!-- ... (9 tane daha aynı yapıyı kopyala, id'leri question2, question3 ... yap) -->
+
+        <Button
+            android:id="@+id/buttonContinueQuiz"
+            android:text="Continue"
+            android:layout_marginTop="24dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+</ScrollView>
