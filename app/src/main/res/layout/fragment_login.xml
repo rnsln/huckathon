@@ -34,10 +34,12 @@
                 android:id="@+id/textAyak"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Welcome To LUMINANCE..."
+                android:text="Seni daha iyi tanımamız için..."
+                android:layout_marginBottom="20sp"
+                android:textAlignment="center"
                 android:minHeight="48dp"
                 android:textColor="#FFFFFF"
-                android:textSize="16sp"
+                android:textSize="20sp"
                 android:gravity="center_vertical" />
 
             <EditText
@@ -71,11 +73,12 @@
 
             <Button
                 android:id="@+id/buttonContinue"
-                android:layout_width="match_parent"
+                android:layout_width="200dp"
+                android:layout_gravity="center"
                 android:layout_height="58dp"
-                android:layout_marginTop="4dp"
+                android:layout_marginTop="40dp"
                 android:backgroundTint="#8ab8e6"
-                android:text="Continue"
+                android:text="Quiz'e ilerle"
                 android:textColor="@android:color/black"
                 android:textStyle="bold" />
 

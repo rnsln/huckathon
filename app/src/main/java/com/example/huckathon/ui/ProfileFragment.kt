@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -23,6 +24,12 @@ class ProfileFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        val stepProgress = view.findViewById<ProgressBar>(R.id.stepProgress)
+        val stepText = view.findViewById<TextView>(R.id.stepText)
+        val steps = MainActivity.steps
+
+        stepProgress.progress = steps
+        stepText.text = "Steps: $steps / 10000"
 
         val nameText = view.findViewById<TextView>(R.id.textName)
         val surnameText = view.findViewById<TextView>(R.id.textSurname)
