@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
             android:id="@+id/mainMenuFragment"
-        android:icon="@android:drawable/ic_menu_compass"
+        android:icon="@android:drawable/ic_menu_today"
         android:title="Menu"/>
     <item
         android:id="@+id/activityPlannerFragment"
@@ -10,10 +10,10 @@
         android:title="Activities"/>
     <item
         android:id="@+id/chatBotFragment"
-        android:icon="@android:drawable/ic_menu_camera"
+        android:icon="@android:drawable/stat_notify_chat"
         android:title="Flux"/>
     <item
         android:id="@+id/profileFragment"
-        android:icon="@android:drawable/ic_menu_mapmode"
+        android:icon="@android:drawable/ic_menu_help"
         android:title="Profile"/>
 </menu>

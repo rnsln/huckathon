@@ -68,9 +68,9 @@ class ProfileFragment : Fragment() {
         val surnameText = view.findViewById<TextView>(R.id.textSurname)
         val dobText = view.findViewById<TextView>(R.id.textDOB)
 
-        nameText.text = "Name ${MainActivity.receivedName ?: "N/A"}"
-        surnameText.text = "Surname: ${MainActivity.receivedSurname ?: "N/A"}"
-        dobText.text = "Date of Birth: ${MainActivity.receivedDob ?: "N/A"}"
+        nameText.text = "${MainActivity.receivedName ?: "N/A"}"
+        surnameText.text = "${MainActivity.receivedSurname ?: "N/A"}"
+        dobText.text = "${MainActivity.receivedDob ?: "N/A"}"
         val retrofit = Retrofit.Builder()
             .baseUrl("http://10.101.12.18:3000/")
             .addConverterFactory(GsonConverterFactory.create())

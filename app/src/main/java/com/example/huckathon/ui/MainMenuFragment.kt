@@ -135,7 +135,9 @@ class MainMenuFragment : Fragment(), SensorEventListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         val stepProgress = view.findViewById<ProgressBar>(R.id.stepProgress)
+        val statusText = view.findViewById<TextView>(R.id.statusText)
         energyBar = view.findViewById(R.id.energyBar)
         energyText = view.findViewById(R.id.energyText)
         stepText = view.findViewById(R.id.stepCounterText)
@@ -151,6 +153,14 @@ class MainMenuFragment : Fragment(), SensorEventListener {
         val energy = MainActivity.globalEnergy
         energyBar.progress = energy
         energyText.text = "Energy: $energy"
+
+
+        val energyStatus = when {
+            energy > 60 -> "YÜKSEK ENERJİ!"
+            energy < 30 -> "DÜŞÜK ENERJİ!"
+            else -> "Normal"
+        }
+        statusText.text = energyStatus
 
 
         sensorManager = requireContext().getSystemService(Context.SENSOR_SERVICE) as SensorManager

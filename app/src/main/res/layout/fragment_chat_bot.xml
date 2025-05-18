@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
+    <!-- Arka plan -->
     <ImageView
         android:id="@+id/backgroundImage"
         android:layout_width="match_parent"
@@ -12,98 +12,113 @@
         android:src="@drawable/my_bg"
         android:contentDescription="@null" />
 
-
-    <ScrollView
-        android:id="@+id/chatScroll"
+    <!-- Tüm ekranı kaplayan dikey yapı -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:padding="16dp">
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:id="@+id/chatContainer"
+        <!-- ScrollView sadece mesajları içerir -->
+        <ScrollView
+            android:id="@+id/chatScroll"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:gravity="bottom"
-            android:background="@android:color/transparent">
-
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="start"
-                android:layout_marginBottom="8dp">
-
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:src="@drawable/flux"
-                    android:background="@drawable/round_avatar"
-                    android:clipToOutline="true"
-                    android:scaleType="centerCrop"
-                    android:layout_marginEnd="8dp"/>
-
-                <TextView
-                    android:id="@+id/responseText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Hello, I'm Flux ✨"
-                    android:textColor="@android:color/white"
-                    android:background="#33FFFFFF"
-                    android:padding="12dp"
-                    android:textSize="16sp"/>
-            </LinearLayout>
-
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:fillViewport="true"
+            android:padding="16dp">
 
             <LinearLayout
+                android:id="@+id/chatContainer"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="end"
-                android:layout_marginBottom="8dp">
+                android:orientation="vertical"
+                android:gravity="bottom"
+                android:background="@android:color/transparent">
 
-                <TextView
+                <!-- GÖNDERİLMİŞ MESAJLAR -->
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Hi Flux!"
-                    android:textColor="@android:color/white"
-                    android:background="#884BA6F0"
-                    android:padding="12dp"
-                    android:textSize="16sp"
-                    android:layout_marginEnd="8dp"/>
+                    android:orientation="horizontal"
+                    android:gravity="start"
+                    android:layout_marginBottom="8dp">
 
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:src="@drawable/maskot"
-                    android:background="@drawable/round_avatar"
-                    android:clipToOutline="true"
-                    android:scaleType="centerCrop"/>
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/flux"
+                        android:background="@drawable/round_avatar"
+                        android:clipToOutline="true"
+                        android:scaleType="centerCrop"
+                        android:layout_marginEnd="8dp"/>
+
+                    <TextView
+                        android:id="@+id/responseText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hello, I'm Flux ✨"
+                        android:textColor="@android:color/white"
+                        android:background="#33FFFFFF"
+                        android:padding="12dp"
+                        android:textSize="16sp"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="end"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Hi Flux!"
+                        android:textColor="@android:color/white"
+                        android:background="#884BA6F0"
+                        android:padding="12dp"
+                        android:textSize="16sp"
+                        android:layout_marginEnd="8dp"/>
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:src="@drawable/maskot"
+                        android:background="@drawable/round_avatar"
+                        android:clipToOutline="true"
+                        android:scaleType="centerCrop"/>
+                </LinearLayout>
+
             </LinearLayout>
+        </ScrollView>
 
+        <!-- AŞAĞI SABİT mesaj yazma alanı -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="12dp"
+            android:gravity="center_vertical">
 
             <EditText
                 android:id="@+id/messageInput"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:hint="Type your message..."
                 android:minHeight="56dp"
-                android:layout_marginTop="12dp"
                 android:backgroundTint="#88FFFFFF"
                 android:textColor="@android:color/white"
-                android:textColorHint="#AAFFFFFF" />
-
+                android:textColorHint="#AAFFFFFF"
+                android:padding="12dp" />
 
             <Button
                 android:id="@+id/sendButton"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
+                android:layout_marginStart="8dp"
                 android:text="Send"
-                android:layout_gravity="center"
-                android:layout_marginTop="8dp"
-                android:backgroundTint="#8ab8e6"/>
+                android:backgroundTint="#8ab8e6" />
         </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
 </FrameLayout>

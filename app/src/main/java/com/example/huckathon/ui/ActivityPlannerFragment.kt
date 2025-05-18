@@ -1,5 +1,6 @@
 package com.example.huckathon.ui
 
+import android.graphics.Color
 import android.os.Bundle
 import android.os.SystemClock
 import android.view.LayoutInflater
@@ -11,7 +12,10 @@ import com.example.huckathon.MainActivity
 import com.example.huckathon.R
 
 class ActivityPlannerFragment : Fragment() {
-
+    private lateinit var cardMeditation: LinearLayout
+    private lateinit var cardConcert: LinearLayout
+    private lateinit var cardYoga: LinearLayout
+    private lateinit var cardRunning: LinearLayout
     private var energy = MainActivity.globalEnergy
     private var activityStartTime: Long = 0
     private var currentActivity: String? = null
@@ -31,18 +35,50 @@ class ActivityPlannerFragment : Fragment() {
         energyBar = view.findViewById(R.id.energyBar)
         energyText = view.findViewById(R.id.energyText)
 
-        // Buton tanımlamaları
+        // Assign to class-level vars (✔ correct way)
+        cardMeditation = view.findViewById(R.id.cardMeditation)
+        cardConcert = view.findViewById(R.id.cardConcert)
+        cardYoga = view.findViewById(R.id.cardYoga)
+        cardRunning = view.findViewById(R.id.cardRunning)
+
         val startMeditation = view.findViewById<Button>(R.id.startMeditation)
         val stopMeditation = view.findViewById<Button>(R.id.stopMeditation)
         val startConcert = view.findViewById<Button>(R.id.startConcert)
         val stopConcert = view.findViewById<Button>(R.id.stopConcert)
+        val startYoga = view.findViewById<Button>(R.id.startYoga)
+        val stopYoga = view.findViewById<Button>(R.id.stopYoga)
+        val startRunning = view.findViewById<Button>(R.id.startRunning)
+        val stopRunning = view.findViewById<Button>(R.id.stopRunning)
 
-        // Tıklama olayları
+        // Button actions
         startMeditation.setOnClickListener { startActivity("meditation") }
         stopMeditation.setOnClickListener { stopActivity("meditation") }
 
         startConcert.setOnClickListener { startActivity("concert") }
         stopConcert.setOnClickListener { stopActivity("concert") }
+
+        startYoga.setOnClickListener { startActivity("yoga") }
+        stopYoga.setOnClickListener { stopActivity("yoga") }
+
+        startRunning.setOnClickListener { startActivity("running") }
+        stopRunning.setOnClickListener { stopActivity("running") }
+
+        // Energy-based suggestion
+        if (energy < 30) {
+            startConcert.isEnabled = false
+            startMeditation.isEnabled = true
+            startYoga.isEnabled = true
+            Toast.makeText(requireContext(), "Enerjin düşük, yoga veya meditasyon önerilir.", Toast.LENGTH_LONG).show()
+        } else if (energy > 60) {
+            startConcert.isEnabled = true
+            startMeditation.isEnabled = false
+            startYoga.isEnabled = false
+            Toast.makeText(requireContext(), "Enerjin yüksek, konser önerilir!", Toast.LENGTH_LONG).show()
+        } else {
+            startConcert.isEnabled = true
+            startMeditation.isEnabled = true
+            startYoga.isEnabled = true
+        }
 
         updateEnergyUI()
     }
@@ -72,8 +108,10 @@ class ActivityPlannerFragment : Fragment() {
 
     private fun applyEnergyChange(activity: String, duration: Int) {
         val delta = when (activity) {
-            "meditation" -> duration / 1       // Her 5 saniyede +1 enerji
-            "concert" -> -duration / 1         // Her 3 saniyede -1 enerji
+            "meditation" -> duration / 1
+            "concert" -> -duration / 1
+            "yoga" -> duration / 1
+            "running" -> -duration / 2
             else -> 0
         }
 
@@ -84,6 +122,22 @@ class ActivityPlannerFragment : Fragment() {
 
     private fun updateEnergyUI() {
         energyBar.progress = energy
-        //energyText.text = "Energy: $energy"
+        energyText.text = "Energy: $energy"
+
+        val recommendedColor = Color.parseColor("#802196F3")
+        val defaultColor = Color.parseColor("#10FFFFFF")
+
+        cardMeditation.setBackgroundColor(defaultColor)
+        cardYoga.setBackgroundColor(defaultColor)
+        cardConcert.setBackgroundColor(defaultColor)
+        cardRunning.setBackgroundColor(defaultColor)
+
+        if (energy < 30) {
+            cardMeditation.setBackgroundColor(recommendedColor)
+            cardYoga.setBackgroundColor(recommendedColor)
+        } else if (energy > 60) {
+            cardConcert.setBackgroundColor(recommendedColor)
+            cardRunning.setBackgroundColor(recommendedColor)
+        }
     }
 }
