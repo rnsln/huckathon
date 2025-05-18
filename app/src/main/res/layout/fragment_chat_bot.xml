@@ -1,29 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="24dp">
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/messageInput"
-        android:layout_width="353dp"
-        android:layout_height="69dp"
-        android:hint="Type your message..." />
 
-    <Button
-        android:id="@+id/sendButton"
-        android:layout_width="146dp"
-        android:layout_height="58dp"
-        android:layout_gravity="center"
-        android:text="Send"
-        android:textAlignment="center" />
-
-    <TextView
-        android:id="@+id/responseText"
+    <ImageView
+        android:id="@+id/backgroundImage"
         android:layout_width="match_parent"
-        android:layout_height="501dp"
-        android:paddingTop="16dp"
-        android:text="Response will appear here"
-        android:textSize="16sp" />
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/my_bg"
+        android:contentDescription="@null" />
+
+
+    <ScrollView
+        android:id="@+id/chatScroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:id="@+id/chatContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="bottom"
+            android:background="@android:color/transparent">
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="start"
+                android:layout_marginBottom="8dp">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/flux"
+                    android:background="@drawable/round_avatar"
+                    android:clipToOutline="true"
+                    android:scaleType="centerCrop"
+                    android:layout_marginEnd="8dp"/>
+
+                <TextView
+                    android:id="@+id/responseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hello, I'm Flux ✨"
+                    android:textColor="@android:color/white"
+                    android:background="#33FFFFFF"
+                    android:padding="12dp"
+                    android:textSize="16sp"/>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="end"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Hi Flux!"
+                    android:textColor="@android:color/white"
+                    android:background="#884BA6F0"
+                    android:padding="12dp"
+                    android:textSize="16sp"
+                    android:layout_marginEnd="8dp"/>
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/maskot"
+                    android:background="@drawable/round_avatar"
+                    android:clipToOutline="true"
+                    android:scaleType="centerCrop"/>
+            </LinearLayout>
+
+
+            <EditText
+                android:id="@+id/messageInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Type your message..."
+                android:minHeight="56dp"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="#88FFFFFF"
+                android:textColor="@android:color/white"
+                android:textColorHint="#AAFFFFFF" />
+
+
+            <Button
+                android:id="@+id/sendButton"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:text="Send"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="#8ab8e6"/>
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

@@ -32,6 +32,7 @@ class MainMenuFragment : Fragment(), SensorEventListener {
     private lateinit var energyText: TextView
     private lateinit var energyBar: ProgressBar
 
+
     private var lastMagnitude = 0.0
     private var threshold = 4.4 // titreşim eşiği
 
@@ -134,15 +135,16 @@ class MainMenuFragment : Fragment(), SensorEventListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        val stepProgress = view.findViewById<ProgressBar>(R.id.stepProgress)
         energyBar = view.findViewById(R.id.energyBar)
         energyText = view.findViewById(R.id.energyText)
         stepText = view.findViewById(R.id.stepCounterText)
-
+        val steps = MainActivity.steps
         playerDot = view.findViewById(R.id.playerMarker)
         mapContainer = view.findViewById(R.id.mapContainer)
         posX = playerDot.translationX
         posY = playerDot.translationY
+        stepProgress.progress = steps
 
         handler.post(moveRunnable)
 
@@ -150,18 +152,6 @@ class MainMenuFragment : Fragment(), SensorEventListener {
         energyBar.progress = energy
         energyText.text = "Energy: $energy"
 
-        val playerDot = view.findViewById<ImageView>(R.id.playerDot)
-        val concertDot = view.findViewById<ImageView>(R.id.concertDot)
-        val meditationDot = view.findViewById<ImageView>(R.id.meditationDot)
-
-        if (MainActivity.globalEnergy < 40) {
-            concertDot.visibility = View.VISIBLE
-            meditationDot.visibility = View.GONE
-            playerDot.visibility = View.VISIBLE
-        } else {
-            concertDot.visibility = View.GONE
-            meditationDot.visibility = View.VISIBLE
-        }
 
         sensorManager = requireContext().getSystemService(Context.SENSOR_SERVICE) as SensorManager
         accelSensor = sensorManager?.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)

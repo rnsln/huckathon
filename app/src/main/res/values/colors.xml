@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="neonBlue">#00E5FF</color>
+    <color name="neonPurple">#9C27B0</color>
+    <color name="neonCyan">#1DE9B6</color>
+
 </resources>

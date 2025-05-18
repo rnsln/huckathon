@@ -1,12 +1,15 @@
 package com.example.huckathon.ui
 
 import android.annotation.SuppressLint
+import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ProgressBar
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.huckathon.R
@@ -14,6 +17,12 @@ import androidx.lifecycle.ViewModelProvider
 import com.db.williamchart.Tooltip
 import com.db.williamchart.view.BarChartView
 import com.example.huckathon.MainActivity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 
 class ProfileFragment : Fragment() {
@@ -24,7 +33,26 @@ class ProfileFragment : Fragment() {
     }
 
     private val weekLabels = listOf("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
-    private val sleepHours = listOf(7f, 6f, 8f, 5f, 7f, 9f, 6.5f) // This should come from API
+    private var sleepHours = listOf(0f, 0f, 0f, 0f, 0f, 0f, 0f) // This should come from API
+    private fun fetchSleepHours() {
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://10.101.12.18:3000/") // update if needed
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        val api = retrofit.create(ChatBotApi::class.java)
+
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val zones = api.getSleepData()
+                withContext(Dispatchers.Main) {
+                    sleepHours = zones.map { it.hours }
+                }
+            } catch (e: Exception) {
+                Log.e("API", "Failed to fetch zones: ${e.message}")
+            }
+        }
+    }
 
     @SuppressLint("SetTextI18n")
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,16 +71,28 @@ class ProfileFragment : Fragment() {
         nameText.text = "Name ${MainActivity.receivedName ?: "N/A"}"
         surnameText.text = "Surname: ${MainActivity.receivedSurname ?: "N/A"}"
         dobText.text = "Date of Birth: ${MainActivity.receivedDob ?: "N/A"}"
-
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://10.101.12.18:3000/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
         val chart = view.findViewById<BarChartView>(R.id.sleepChart)
-        chart.animation.duration = 1000L
 
-        chart.labelsFormatter = { value -> "${value.toInt()}h" }
+        val api = retrofit.create(ChatBotApi::class.java)
 
-        chart.animate(
-            sleepHours.mapIndexed { i, value ->
-                weekLabels[i] to value
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                val response = api.getSleepData() // this returns List<SleepData>
+                withContext(Dispatchers.Main) {
+                    val sleepHours = response.map { it.hours }
+                    val weekLabels = listOf("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun")
+
+                    chart.animate(
+                        weekLabels.zip(sleepHours)
+                    )
+                }
+            } catch (e: Exception) {
+                Log.e("API", "Sleep data fetch failed: ${e.message}")
             }
-        )
+        }
     }
 }

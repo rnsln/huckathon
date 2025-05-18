@@ -10,4 +10,7 @@ interface ChatBotApi {
 
     @GET("/getEnergyLocations")
     suspend fun getEnergyZones(): List<EnergyZone>
+
+    @GET("/getLumensSleepLog")
+    suspend fun getSleepData(): List<SleepData>
 }

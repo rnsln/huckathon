@@ -11,3 +11,6 @@ data class EnergyZone(
     val Y: Float,
     val Radius: Float
 )
+data class SleepData(
+    val hours: Float
+)
