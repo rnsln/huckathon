@@ -11,10 +11,25 @@ import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
+
+    companion object {
+        var receivedName: String? = null
+        var receivedSurname: String? = null
+        var receivedDob: String? = null
+        var globalEnergy: Int = 50
+        var steps: Int = 0
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        // Intent üzerinden gelen verileri al
+        receivedName = intent.getStringExtra("name")
+        receivedSurname = intent.getStringExtra("surname")
+        receivedDob = intent.getStringExtra("dob")
+
+        // Navigation setup
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
@@ -22,5 +37,6 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(bottomNav, navController)
     }
 }
+
 
 

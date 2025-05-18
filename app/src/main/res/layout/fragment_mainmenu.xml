@@ -1,7 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:text="Main Menu"
-    android:textSize="24sp"
-    android:gravity="center"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:padding="24dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+    android:layout_height="match_parent">
+
+    <ProgressBar
+        android:id="@+id/energyBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:max="100"
+        android:progress="50" />
+
+    <TextView
+        android:id="@+id/energyText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Energy: 50"
+        android:textSize="18sp"/>
+    <!-- Kullanıcı -->
+    <TextView
+        android:id="@+id/stepCounterText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tahmini adım: 0"
+        android:textSize="18sp"
+        android:layout_marginTop="16dp"/>
+
+    <ImageView
+        android:id="@+id/playerDot"
+        android:layout_width="127dp"
+        android:layout_height="99dp"
+        android:layout_centerInParent="true"
+        android:contentDescription="You"
+        android:src="@android:drawable/ic_menu_agenda" />
+
+    <ImageView
+        android:id="@+id/concertDot"
+        android:layout_width="198dp"
+        android:layout_height="293dp"
+        android:layout_marginLeft="100dp"
+        android:layout_marginTop="80dp"
+        android:contentDescription="Concert"
+        android:src="@android:drawable/ic_menu_camera" />
+
+    <ImageView
+        android:id="@+id/meditationDot"
+        android:layout_width="143dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:contentDescription="Meditation"
+        android:src="@android:drawable/ic_menu_mapmode" />
+</LinearLayout>

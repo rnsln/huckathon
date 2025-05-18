@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TextView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:text="ChatBot Screen"
-    android:textSize="24sp"
-    android:gravity="center"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"/>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <EditText
+        android:id="@+id/messageInput"
+        android:layout_width="353dp"
+        android:layout_height="69dp"
+        android:hint="Type your message..." />
+
+    <Button
+        android:id="@+id/sendButton"
+        android:layout_width="146dp"
+        android:layout_height="58dp"
+        android:layout_gravity="center"
+        android:text="Send"
+        android:textAlignment="center" />
+
+    <TextView
+        android:id="@+id/responseText"
+        android:layout_width="match_parent"
+        android:layout_height="501dp"
+        android:paddingTop="16dp"
+        android:text="Response will appear here"
+        android:textSize="16sp" />
+</LinearLayout>

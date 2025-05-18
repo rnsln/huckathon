@@ -1,39 +1,365 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <ImageView
+        android:id="@+id/backgroundImage"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/quiz_bg"
+        android:contentDescription="@null" />
 
-        <!-- Örnek Soru Şablonu (10 defa kullan) -->
-        <TextView
-            android:text="1. How do you feel today?"
-            android:textStyle="bold"
-            android:layout_marginTop="16dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp">
 
-        <RadioGroup
-            android:id="@+id/question1"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <RadioButton android:text="Great" />
-            <RadioButton android:text="Okay" />
-            <RadioButton android:text="Bad" />
-        </RadioGroup>
 
-        <!-- ... (9 tane daha aynı yapıyı kopyala, id'leri question2, question3 ... yap) -->
+            <!-- Category: Energy (E vs I) -->
+            <!-- Question 1 -->
 
-        <Button
-            android:id="@+id/buttonContinueQuiz"
-            android:text="Continue"
-            android:layout_marginTop="24dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            <TextView
+                android:text="1. Yeni bir ortama girdiğinde ne yaparsın?"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
 
-    </LinearLayout>
-</ScrollView>
+            <RadioGroup
+                android:id="@+id/question1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:text="Hemen iletişim kurarım"
+                    android:textColor="#FFFFFF"
+                    android:tag="1.0" />
+                <RadioButton
+                    android:text="Gözlem yapar, sonra dahil olurum"
+                    android:textColor="#FFFFFF"
+                    android:tag="-1.0" />
+                <RadioButton
+                    android:text="Duruma göre değişir"
+                    android:textColor="#FFFFFF"
+                    android:tag="0.0" />
+            </RadioGroup>
+
+            <!-- Question 2 -->
+            <TextView
+                android:text="2. Boş zamanlarını nasıl geçirirsin?"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:id="@+id/question2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:text="Grup aktiviteleri"
+                    android:textColor="#FFFFFF"
+                    android:tag="1.0" />
+                <RadioButton
+                    android:text="Yalnız dinlenerek"
+                    android:textColor="#FFFFFF"
+                    android:tag="-1.0" />
+                <RadioButton
+                    android:text="Bazen öyle, bazen böyle"
+                    android:textColor="#FFFFFF"
+                    android:tag="0.0" />
+            </RadioGroup>
+
+            <!-- Question 3 -->
+            <TextView
+                android:text="3. Düşüncelerini nasıl paylaşırsın?"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:id="@+id/question3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:text="Yüksek sesle, başkalarıyla konuşarak"
+                    android:textColor="#FFFFFF"
+                    android:tag="1.0" />
+                <RadioButton
+                    android:text="Kafamda işler"
+                    android:textColor="#FFFFFF"
+                    android:tag="-1.0" />
+                <RadioButton
+                    android:text="Ortama göre değişir"
+                    android:textColor="#FFFFFF"
+                    android:tag="0.0" />
+            </RadioGroup>
+
+            <!-- Category: Information Gathering (N vs S) -->
+            <!-- Question 4 -->
+
+
+            <TextView
+                android:text="4. Yeni bir fikir duyduğunda ne ilgini çeker?"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:id="@+id/question4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:text="Arkasındaki potansiyel ve olasılıklar"
+                    android:textColor="#FFFFFF"
+                    android:tag="1.0" />
+                <RadioButton
+                    android:text="Gerçekler ve uygulanabilirliği"
+                    android:textColor="#FFFFFF"
+                    android:tag="-1.0" />
+                <RadioButton
+                    android:text="Ne olduğu fark etmez, yeter ki ilginç olsun"
+                    android:textColor="#FFFFFF"
+                    android:tag="0.0" />
+            </RadioGroup>
+
+            <!-- Question 5 -->
+            <TextView
+                android:text="5. Geçmişten bahsederken:"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:id="@+id/question5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:text="Anlam ve bağlantıları hatırlarım"
+                    android:textColor="#FFFFFF"
+                    android:tag="1.0" />
+                <RadioButton
+                    android:text="Gerçek detayları ve sırayı hatırlarım"
+                    android:textColor="#FFFFFF"
+                    android:tag="-1.0" />
+                <RadioButton
+                    android:text="Sahne sahne hatırlıyorum"
+                    android:textColor="#FFFFFF"
+                    android:tag="0.0" />
+            </RadioGroup>
+
+            <!-- Question 6 -->
+            <TextView
+                android:text="6. Projeye nasıl başlarsın?"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:id="@+id/question6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:text="Tüm resmi hayal ederim"
+                    android:textColor="#FFFFFF"
+                    android:tag="1.0" />
+                <RadioButton
+                    android:text="Küçük adımlarla başlarım"
+                    android:textColor="#FFFFFF"
+                    android:tag="-1.0" />
+                <RadioButton
+                    android:text="İçgüdüme göre değişir"
+                    android:textColor="#FFFFFF"
+                    android:tag="0.0" />
+            </RadioGroup>
+
+            <!-- Category: Decision Making (T vs F) -->
+            <!-- Question 7 -->
+            <TextView
+                android:text="7. Tartışmada ne önemlidir?"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:id="@+id/question7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:text="Gerçek ve mantık"
+                    android:textColor="#FFFFFF"
+                    android:tag="1.0" />
+                <RadioButton
+                    android:text="Duygular ve ilişkiler"
+                    android:textColor="#FFFFFF"
+                    android:tag="-1.0" />
+                <RadioButton
+                    android:text="Dengeli olmak"
+                    android:textColor="#FFFFFF"
+                    android:tag="0.0" />
+            </RadioGroup>
+
+            <!-- Question 8 -->
+            <TextView
+                android:text="8. Zor bir kararda neye bakarsın?"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:id="@+id/question8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:text="Mantıksal neden-sonuçlara"
+                    android:textColor="#FFFFFF"
+                    android:tag="1.0" />
+                <RadioButton
+                    android:text="Kalbinin ne söylediğine"
+                    android:textColor="#FFFFFF"
+                    android:tag="-1.0" />
+                <RadioButton
+                    android:text="İkisine de"
+                    android:textColor="#FFFFFF"
+                    android:tag="0.0" />
+            </RadioGroup>
+
+            <!-- Question 9 -->
+            <TextView
+                android:text="9. Geri bildirim verirken:"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:id="@+id/question9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:text="Doğrudan açık sözlü olurum"
+                    android:textColor="#FFFFFF"
+                    android:tag="1.0" />
+                <RadioButton
+                    android:text="Hislerini incitmemeye çalışırım"
+                    android:textColor="#FFFFFF"
+                    android:tag="-1.0" />
+                <RadioButton
+                    android:text="Yumuşak ama net olurum"
+                    android:textColor="#FFFFFF"
+                    android:tag="0.0" />
+            </RadioGroup>
+
+            <!-- Category: Lifestyle (J vs P) -->
+            <!-- Question 10 -->
+            <TextView
+                android:text="10. Günlük planlama stilin:"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:id="@+id/question10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:text="Saat saat belirlerim"
+                    android:textColor="#FFFFFF"
+                    android:tag="1.0" />
+                <RadioButton
+                    android:text="Akışa bırakırım"
+                    android:textColor="#FFFFFF"
+                    android:tag="-1.0" />
+                <RadioButton
+                    android:text="İskelet plan yaparım"
+                    android:textColor="#FFFFFF"
+                    android:tag="0.0" />
+            </RadioGroup>
+
+            <!-- Question 11 -->
+            <TextView
+                android:text="11. Acil işler geldiğinde:"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:id="@+id/question11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:text="Plan çıkarır, adım adım ilerlerim"
+                    android:textColor="#FFFFFF"
+                    android:tag="1.0" />
+                <RadioButton
+                    android:text="Anlık çözümler üretirim"
+                    android:textColor="#FFFFFF"
+                    android:tag="-1.0" />
+                <RadioButton
+                    android:text="Öncelik sırasına göre karar veririm"
+                    android:textColor="#FFFFFF"
+                    android:tag="0.0" />
+            </RadioGroup>
+
+            <!-- Question 12 -->
+            <TextView
+                android:text="12. Tatil için hazırlık:"
+                android:textStyle="bold"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <RadioGroup
+                android:id="@+id/question12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:text="Önceden rezervasyon, plan, rota yaparım"
+                    android:textColor="#FFFFFF"
+                    android:tag="1.0" />
+                <RadioButton
+                    android:text="Sadece bilet alır, gerisini doğaçlarım"
+                    android:textColor="#FFFFFF"
+                    android:tag="-1.0" />
+                <RadioButton
+                    android:text="Esnek plan yaparım"
+                    android:textColor="#FFFFFF"
+                    android:tag="0.0" />
+            </RadioGroup>
+
+            <Button
+                android:id="@+id/buttonContinueQuiz"
+                android:text="Devam Et"
+                android:textColor="#FFFFFF"
+                android:layout_marginTop="24dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+    </ScrollView>
+</FrameLayout>

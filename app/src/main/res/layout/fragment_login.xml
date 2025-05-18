@@ -1,40 +1,87 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:padding="24dp"
+<?xml version="1.0" encoding="utf-8"?><FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <!-- Arka plan görseli -->
+
+
+
+    <ImageView
+        android:id="@+id/backgroundImage"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/my_bg"
+        android:contentDescription="@null" />
 
-        <EditText
-            android:id="@+id/editTextName"
+    <!-- ScrollView içeriği -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="60dp">
+
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name"
-            android:minHeight="48dp" />
+            android:background="#00000000"
+            android:padding="16dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginBottom="64dp"
+            android:elevation="5dp">
 
-        <EditText
-            android:id="@+id/editTextSurname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Surname"
-            android:minHeight="48dp" />
+            <TextView
+                android:id="@+id/textAyak"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Welcome To LUMINANCE..."
+                android:minHeight="48dp"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                android:gravity="center_vertical" />
 
-        <EditText
-            android:id="@+id/editTextDOB"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Date of Birth"
-            android:minHeight="48dp" />
+            <EditText
+                android:id="@+id/editTextName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name"
+                android:minHeight="48dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="#99FFFFFF" />
 
-        <Button
-            android:id="@+id/buttonContinue"
-            android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:layout_marginTop="24dp"
-            android:text="Continue" />
-    </LinearLayout>
-</ScrollView>
+            <EditText
+                android:id="@+id/editTextSurname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Surname"
+                android:minHeight="48dp"
+                android:layout_marginTop="12dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="#99FFFFFF" />
+
+            <EditText
+                android:id="@+id/editTextDOB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Lumin ID"
+                android:minHeight="48dp"
+                android:layout_marginTop="12dp"
+                android:textColor="@android:color/white"
+                android:textColorHint="#99FFFFFF" />
+
+            <Button
+                android:id="@+id/buttonContinue"
+                android:layout_width="match_parent"
+                android:layout_height="58dp"
+                android:layout_marginTop="4dp"
+                android:backgroundTint="#8ab8e6"
+                android:text="Continue"
+                android:textColor="@android:color/black"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</FrameLayout>
