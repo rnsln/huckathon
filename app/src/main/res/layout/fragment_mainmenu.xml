@@ -39,8 +39,8 @@
 
     <ImageView
         android:id="@+id/concertDot"
-        android:layout_width="198dp"
-        android:layout_height="293dp"
+        android:layout_width="19dp"
+        android:layout_height="29dp"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="80dp"
         android:contentDescription="Concert"
@@ -54,4 +54,33 @@
         android:layout_marginTop="30dp"
         android:contentDescription="Meditation"
         android:src="@android:drawable/ic_menu_mapmode" />
+
+    <FrameLayout
+        android:id="@+id/mapContainer"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_marginTop="16dp">
+
+        <!-- Harita Görseli -->
+
+        <!-- Kullanıcının konumunu gösterecek imleç -->
+
+        <ImageView
+            android:id="@+id/mapImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:scaleType="fitXY"
+            android:src="@drawable/your_map" />
+
+        <ImageView
+            android:id="@+id/playerMarker"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="top|start"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="100dp"
+            android:src="@drawable/little_guy" />
+    </FrameLayout>
+
 </LinearLayout>

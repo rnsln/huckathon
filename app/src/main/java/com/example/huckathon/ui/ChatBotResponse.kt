@@ -6,3 +6,8 @@ data class ChatBotResponse(
 data class MessageRequest(
     val question: String
 )
+data class EnergyZone(
+    val X: Float,
+    val Y: Float,
+    val Radius: Float
+)

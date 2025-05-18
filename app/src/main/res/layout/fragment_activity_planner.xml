@@ -1,202 +1,211 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/black"
-    android:padding="16dp">
-
+    android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/backgroundImage"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/act_bg"
+        android:contentDescription="@null" />
+    <!-- Enerji bloğu en altta -->
     <LinearLayout
+        android:id="@+id/energyBlock"
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal">
-
-        <ProgressBar
-            android:id="@+id/energyBar"
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:max="100"
-            android:progress="50"
-            style="@android:style/Widget.ProgressBar.Horizontal"/>
+        android:padding="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <TextView
             android:id="@+id/energyText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="Energy: 50"
-            android:textColor="@color/white"
+            android:layout_gravity="center_horizontal"
+            android:text=" "
+            android:textColor="@android:color/white"
             android:textSize="25sp"
-            android:textStyle="bold"/>
+            android:textStyle="bold" />
 
-        <!-- Activity Card Template -->
-        <LinearLayout
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#23FFFDFD"
-            android:padding="16dp"
-            android:orientation="vertical"
+        <ProgressBar
+            android:id="@+id/energyBar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:drawable/dialog_holo_light_frame"
-            android:elevation="4dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Meditation"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/white"
-                android:layout_gravity="center_horizontal"/>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp">
-
-                <Button
-                    android:id="@+id/startMeditation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Start" />
-
-                <Button
-                    android:id="@+id/stopMeditation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Stop"
-                    android:layout_marginStart="16dp" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- Concert -->
-        <LinearLayout
-            android:layout_marginTop="16dp"
-            android:backgroundTint="#23FFFDFD"
-            android:padding="16dp"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:drawable/dialog_holo_light_frame"
-            android:elevation="4dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Concert"
-                android:textColor="@color/white"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:layout_gravity="center_horizontal"/>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp">
-
-                <Button
-                    android:id="@+id/startConcert"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Start" />
-
-                <Button
-                    android:id="@+id/stopConcert"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Stop"
-                    android:layout_marginStart="16dp" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- Yoga -->
-        <LinearLayout
-            android:layout_marginTop="16dp"
-            android:padding="16dp"
-            android:orientation="vertical"
-            android:backgroundTint="#23FFFDFD"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:drawable/dialog_holo_light_frame"
-            android:elevation="4dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Yoga"
-                android:textSize="20sp"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:layout_gravity="center_horizontal"/>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp">
-
-                <Button
-                    android:id="@+id/startYoga"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Start" />
-
-                <Button
-                    android:id="@+id/stopYoga"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Stop"
-                    android:layout_marginStart="16dp" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <!-- Running -->
-        <LinearLayout
-            android:layout_marginTop="16dp"
-            android:padding="16dp"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:backgroundTint="#23FFFDFD"
-            android:layout_height="wrap_content"
-            android:background="@android:drawable/dialog_holo_light_frame"
-            android:elevation="4dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Running"
-                android:textSize="20sp"
-                android:textColor="@color/white"
-                android:textStyle="bold"
-                android:layout_gravity="center_horizontal"/>
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp">
-
-                <Button
-                    android:id="@+id/startRunning"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Start" />
-
-                <Button
-                    android:id="@+id/stopRunning"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Stop"
-                    android:layout_marginStart="16dp" />
-            </LinearLayout>
-        </LinearLayout>
-
+            android:layout_height="31dp"
+            android:max="100"
+            android:progress="50"
+            android:progressBackgroundTint="#31FFFFFF"
+            android:progressTint="#FF8ABFFF" />
     </LinearLayout>
-</ScrollView>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="90dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <!-- Örnek Progress -->
+
+
+
+            <!-- … diğer kartlar (LinearLayout) … -->
+            <!-- Kart arka plan rengi -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="#10FFFFFF"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Meditation"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <!-- buton satırı -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/startMeditation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Start"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        android:backgroundTint="#8ab8e6"/>
+
+                    <Button
+                        android:id="@+id/stopMeditation"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Stop"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        android:backgroundTint="#8ab8e6"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="#10FFFFFF"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Concert"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <!-- buton satırı -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/startConcert"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Start"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        android:backgroundTint="#8ab8e6" />
+
+                    <Button
+                        android:id="@+id/stopConcert"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Stop"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        android:backgroundTint="#8ab8e6" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:background="#10FFFFFF"
+                android:elevation="4dp"
+                android:orientation="vertical"
+                android:padding="16dp">
+
+                <!-- buton satırı -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="Yoga"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/startYoga"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Start"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        android:backgroundTint="#8ab8e6" />
+
+                    <Button
+                        android:id="@+id/stopYoga"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Stop"
+                        android:textColor="@android:color/black"
+                        android:textStyle="bold"
+                        android:backgroundTint="#8ab8e6" />
+                </LinearLayout>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+            <!-- diğer kartlar aynı kalıbı kopyala outer linearlayout -->
+
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

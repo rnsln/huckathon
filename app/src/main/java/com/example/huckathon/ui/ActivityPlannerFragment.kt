@@ -84,6 +84,6 @@ class ActivityPlannerFragment : Fragment() {
 
     private fun updateEnergyUI() {
         energyBar.progress = energy
-        energyText.text = "Energy: $energy"
+        //energyText.text = "Energy: $energy"
     }
 }

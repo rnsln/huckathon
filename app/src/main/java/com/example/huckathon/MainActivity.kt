@@ -8,7 +8,13 @@ import androidx.core.view.WindowInsetsCompat
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
+import androidx.work.ExistingPeriodicWorkPolicy
+import androidx.work.OneTimeWorkRequestBuilder
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
+import com.example.huckathon.ui.HelloWorker
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import java.util.concurrent.TimeUnit
 
 class MainActivity : AppCompatActivity() {
 
@@ -35,6 +41,16 @@ class MainActivity : AppCompatActivity() {
 
         val bottomNav = findViewById<BottomNavigationView>(R.id.bottom_nav)
         NavigationUI.setupWithNavController(bottomNav, navController)
+
+        val oneTimeWorkRequest = OneTimeWorkRequestBuilder<HelloWorker>().build()
+        WorkManager.getInstance(this).enqueue(oneTimeWorkRequest)
+
+        val workRequest = PeriodicWorkRequestBuilder<HelloWorker>(15, TimeUnit.SECONDS).build()
+        WorkManager.getInstance(this).enqueueUniquePeriodicWork(
+            "hello_work",
+            ExistingPeriodicWorkPolicy.KEEP,
+            workRequest
+        )
     }
 }
 
