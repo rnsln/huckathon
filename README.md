@@ -5,7 +5,7 @@ LUMINANCE
 digital twin app for lumins, 
 Mobile app basicly helps the lumins to survive and to live better!
 
-Kotlin + ExpressJs + Flask + Retrofit + Sensors from Watch and Mobile Device 
+Kotlin,Python + ExpressJs + Flask + Retrofit + Sensors from Watch and Mobile Device 
 no code for star tracker
 used accelerometer + magnetometer
 
