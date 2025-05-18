@@ -24,14 +24,14 @@
         android:id="@+id/luminTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="72dp"
         android:fontFamily="monospace"
         android:text="LUMINANCE"
         android:textColor="@android:color/white"
-        android:textSize="50sp"
+        android:textSize="70sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.47"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,10 +39,10 @@
         android:id="@+id/luminSlogan"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="6dp"
         android:text="rosto köfte"
         android:textColor="#AAFFFFFF"
-        android:textSize="20sp"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,15 +50,15 @@
 
     <ImageView
         android:id="@+id/luminLogo"
-        android:layout_width="463dp"
+        android:layout_width="600dp"
         android:layout_height="483dp"
         android:src="@drawable/lumin_logo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/backgroundGif"
-        app:layout_constraintVertical_bias="0.396"
+        app:layout_constraintVertical_bias="0.395"
         tools:ignore="MissingConstraints" />
 
     <TextView
