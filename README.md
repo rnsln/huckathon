@@ -1,4 +1,14 @@
 Case 13 - 16
+**Hacettepe AR-GE Topluluğu HUCKATHON Projesi (24 saatte oluşturulmuştur.)**
+
+# Team: ROSTO KOFTE
+Eren Aslan
+
+Efe Kaan Güler
+
+Sıla Koçtepe
+
+Hüseyin Umut Işık
 
 # 🌟 LUMINANCE – Digital Twin App for Lumins
 
