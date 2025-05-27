@@ -1,7 +1,7 @@
 Case 13 - 16
 **Hacettepe AR-GE Topluluğu HUCKATHON Projesi (24 saatte oluşturulmuştur.)**
 
-# Team: ROSTO KOFTE
+# Team ROSTO KOFTE
 Eren Aslan
 
 Efe Kaan Güler
